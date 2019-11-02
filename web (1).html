@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<!--
+  * Please see the included README.md file for license terms and conditions.
+  -->
+<head>
+    <title>IRTOS</title>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+
+    <!-- see http://webdesign.tutsplus.com/tutorials/htmlcss-tutorials/quick-tip-dont-forget-the-viewport-meta-tag -->
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=no">
+    <style>
+        /* following two viewport lines are equivalent to meta viewport statement above, needed for Windows */
+        /* see http://www.quirksmode.org/blog/archives/2014/05/html5_dev_conf.html and http://dev.w3.org/csswg/css-device-adapt/ */
+        @-ms-viewport { width: 100vw ; min-zoom: 100% ; zoom: 100% ; }  @viewport { width: 100vw ; min-zoom: 100% zoom: 100% ; }
+        @-ms-viewport { user-zoom: fixed ; min-zoom: 100% ; }           @viewport { user-zoom: fixed ; min-zoom: 100% ; }
+        @keyframes changeColor {
+	0% {
+		color: red;
+		border-color: black;
+	}
+	100% {
+		color: blue;
+		border-color: yellow;
+	}
+}
+
+@keyframes changeSize {
+	0% {transform: scale(1)}
+	65% {transform: scale(1.2)}
+	100% {transform: scale(1.4)}
+}
+
+
+@keyframes blink {
+	0% {background-color: blue}
+	50% {background-color: black}
+	animation:blink 2s step-end infinite;
+}
+body  {
+    background-image: url("https://wallpaperscraft.com/image/train_bridge_railway_height_racks_stones_bricks_51939_2560x1440.jpg");
+   
+}
+
+ h1 {
+  font-family: 'Oxygen', 'Trebuchet MS', Arial, sans-serif;
+  font-size: 2.2em;
+  line-height: 125px;
+  font-weight: bold;
+  text-align: right;
+  color: #8d8d8d;
+  
+  text-shadow: 2px 2px 1px #000;
+   animation:
+changeColor 3s infinite;
+}
+ h1:hover {
+  -webkit-animation-duration: 2s;
+  -webkit-animation-timing-function: ease-in;
+  -webkit-animation-fill-mode: both;
+  -webkit-animation-name: changeColor;
+  -moz-animation-duration: 2s;
+  -moz-animation-timing-function: ease;
+  -moz-animation-fill-mode: both;
+  -moz-animation-name: changeColor;
+  animation-duration: 2s;
+  animation-timing-function: ease;
+  animation-fill-mode: both;
+  animation:
+changeColor 3s infinite,
+changeSize 2s ease-in 1s infinite;
+}
+a:link, a:visited {
+    background-color: #f44336;
+	 border-radius: 25px;
+    color: white;
+    padding: 14px 25px;
+    text-align: center;	
+    text-decoration: none;
+    display: inline-block;
+}
+select {
+    width: 30%;
+    padding: 16px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #9ACD32  ;
+    font-size: 20px
+}
+select:hover{
+	background-color: #FFD700 ;
+}
+input[type=text] {
+    width:150px;
+	height: 55px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    background-color: #87CEFA  ;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+	 -moz-transition: width 2s;
+	  transition: width 2s;
+	  
+}
+input[type=text]:hover {
+    background-color: #FF8C00  ;
+	width: 300px;
+}
+a{
+    width: 15%;
+    background-color: #00ffff;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+a:hover {
+    background-color: #00008B ;
+}
+.textarea{background-color:	#F0FFF0  ;color:black;font-family:newcourier;}
+.textarea:hover{background-color:#FF00FF ;}
+.label{
+	color: red;font-size: 25px;
+	  font-weight: bold;
+}
+    </style>
+
+    <!-- Uncomment the following scripts if you convert your "Standard HTML5" project into a "Cordova" project. -->
+    <!-- <script src="cordova.js"></script> -->          <!-- phantom library, needed for Cordova api calls, added during build -->
+    <!-- <script src="js/app.js"></script> -->           <!-- recommended location of your JavaScript code relative to other JS files -->
+    <!-- <script src="xdk/init-dev.js"></script> -->     <!-- normalizes device and document ready events, see README for details -->
+</head>
+
+<body>
+
+  
+<h1  style="color: red;text-align: center;font-size: 80;outline-color: red;">INDIAN RAILWAY TICKETING OPTIMIZATION SYSTEM</h1>
+
+
+<br>
+<form method="post" action="irtosphp.php" enctype="multipart/form-data">
+ <label class="label" for="name">SOURCE STATION</label>
+    <br>
+	<input type="text" name="name00[]" value="">
+	<br>
+	<input type="text" name="name01[]" value="">
+	<br>
+	
+	<input type="text" name="name02[]" value="">
+	<br>
+	<input type="text" name="name03[]" value="">
+	<br>
+	<input type="text" name="name04[]" value="">
+	<br>
+	<br>
+	<label class="label" for="name">DESTINATION STATION</label>
+    <br>
+	<input type="text" name="name10[]" value="">
+	<br>
+	<input type="text" name="name11[]" value="">
+	<br>
+	
+	<input type="text" name="name12[]" value="">
+	<br>
+	<input type="text" name="name13[]" value="">
+	<br>
+	
+	<input type="text" name="name14[]" value="">
+	<br>
+	<br>
+	<label class="label" for="name">DATE</label>
+	<input type="text" name="date" value="">
+	<br>
+	<br>
+	<label class="label" for="name">CLASS</label>
+	<select name="class">
+
+  <option value="3A">3A</option>
+  <option value="2A">2A</option>
+  <option value="1A">1A</option>
+   <option value="SL">SL</option>
+</select>
+<br>
+<br>
+<label class="label" for="name3">QUOTA</label>
+<select name="quota">
+ <option value="general">GENERAL</option>
+  <option value="tatkal">TATKAL</option>
+  </select>
+  <br>
+  <br>
+  <a href=" file:///C:/Users/Vishal%20Soni/Desktop/irtosres.html">SUBMIT</a>
+</form>
+
+
+
+<?php
+	if(isset($_POST("sub")){
+	$name00 = $_POST["name00"];
+	$name01 = $_POST["name01"];
+$name02 = $_POST["name02"];
+$name03 = $_POST["name03"];
+$name04 = $_POST["name04"];
+$source = array($name00,$name01,$name02,$name03,$name04);
+$name10 = $_POST["name10"];
+$name11 = $_POST["name11"];
+$name12 = $_POST["name12"];
+$name13 = $_POST["name13"];
+$name14 = $_POST"name14"];
+$dest = array($name10,$name11,$name12,$name13,$name14);
+$tdate = $_POST["date"];
+$stclass = $_POST["class"];
+$quota1 = $_POST["quota"];
+}
+
+
+	$servername = "localhost";
+$username = "127.0.0.1";
+$password = "1pe13cs178";
+
+
+$conn = new mysqli($servername, $username, $password);
+
+$sql = "CREATE DATABASE inputDB;";
+$sql = "CREATE TABLE inputTable (
+					source1 varchar(15),
+					dest1 varchar(15),
+					date varchar(10),
+					class varchar(5),
+					quota1 varchar(15));";
+
+while($i<5){
+$sql = "UPDATE inputTable values SET ($source[$i],$dest[$i],$tdate,$stclass,$quota1);";
+$i=$i+1;
+}
+$conn->close();
+?>
+</body>
+</html>
